@@ -1,19 +1,19 @@
 {
-	"name": "pb.expectequal",
-	"version": "1.0.0",
-	"license": "MIT",
-	"author": "Peter Boyer <https://github.com/peterboyer>",
-	"description": "Assert exact equality of types.",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/peterboyer/expectequal.git"
-	},
-	"type": "module",
-	"exports": "./index.js",
-	"types": "./index.d.ts",
-	"sideEffects": false,
-	"prettier": "pkgts",
-	"devDependencies": {
-		"pkgts": "file:./pkgts"
-	}
+  "name": "pb.types",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Peter Boyer <https://github.com/peterboyer>",
+  "description": "Expect/Equal/NotEqual and others.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterboyer/pb.types.git"
+  },
+  "type": "module",
+  "exports": "./index.js",
+  "types": "./index.d.ts",
+  "sideEffects": false,
+  "prettier": "pkgts",
+  "devDependencies": {
+    "pkgts": "file:./pkgts"
+  }
 }

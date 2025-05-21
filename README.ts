@@ -1,10 +1,10 @@
 /*!
-# expectequal
+# pb.types
 
 ## Installation
 
 ```shell
-npm install pb.expectequal
+npm install pb.types
 ```
 
 ## Requirements
@@ -12,8 +12,13 @@ npm install pb.expectequal
 - `typescript@>=5.0.0`
 - `tsconfig.json > "compilerOptions" > { "strict": true }`
 !*/
+
+/*!
+### `Expect,Equal,NotEqual`
+!*/
+
 //>
-import type { Expect, Equal, NotEqual } from "pb.expectequal";
+import type { Expect, Equal, NotEqual } from "pb.types";
 
 const result = JSON.stringify({});
 
@@ -21,8 +26,12 @@ const result = JSON.stringify({});
 !0 as Expect<NotEqual<typeof result, number>>;
 //<
 
+/*!
+### `branch`
+!*/
+
 //>
-import { branch } from "pb.expectequal";
+import { branch } from "pb.types";
 
 void function example(): string | number | undefined {
 	if (branch()) {
@@ -35,4 +44,33 @@ void function example(): string | number | undefined {
 
 	return undefined;
 };
+//<
+
+//
+/*!
+### `Intersect`
+!*/
+
+//>
+import type { Intersect } from "pb.types";
+
+type Example = { A: true } | { B: true } | { C: true };
+type Result = Intersect<Example>;
+//   ^ { A: true } & { B: true } & { C: true }
+//   ^ { A: true; B: true; C: true }
+void {} as unknown as Result; //-
+//<
+
+/*!
+### `Identity<T>`
+!*/
+
+//>
+import type { Identity } from "pb.types";
+
+const value = Object.assign({ A: true }, { B: true });
+//    ^ { A: boolean } & { B: boolean }
+type _Result = Identity<typeof value>;
+//   ^ { A: boolean; B: boolean }
+void {} as unknown as _Result; //-
 //<

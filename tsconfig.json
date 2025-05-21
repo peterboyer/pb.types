@@ -2,6 +2,6 @@
 	"extends": ["./pkgts/tsconfig.json"],
 	"include": ["./src", "./README.ts"],
 	"compilerOptions": {
-		"paths": { "pb.expectequal": ["./src/index.ts"] }
+		"paths": { "pb.types": ["./src/index.ts"] }
 	}
 }
