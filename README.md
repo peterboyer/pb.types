@@ -1,5 +1,13 @@
 # pb.types
 
+> [!NOTE]
+> Renamed from `pb.expectequal`.
+>
+> Combines [`pb.expectequal`](https://github.com/peterboyer/pb.expectequal),
+[`pb.intersect`](https://github.com/peterboyer/pb.intersect), and
+[`pb.identity`](https://github.com/peterboyer/pb.identity) into a single
+[`pb.types`](https://github.com/peterboyer/pb.types) package.
+
 ## Installation
 
 ```shell
@@ -47,7 +55,7 @@ type Result = Intersect<Example>;
 ```
 
 
-### `Identity<T>`
+### `Identity`
 
 - [`Identity`](./src/identity.ts)
 
