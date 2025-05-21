@@ -14,7 +14,17 @@ npm install pb.types
 !*/
 
 /*!
+## API
+
+- More information available as jsdoc strings in linked source files below.
+!*/
+
+/*!
 ### `Expect,Equal,NotEqual`
+
+- [`Expect`](./src/expect.ts)
+- [`Equal`](./src/equal.ts)
+- [`NotEqual`](./src/not-equal.ts)
 !*/
 
 //>
@@ -27,7 +37,41 @@ const result = JSON.stringify({});
 //<
 
 /*!
+### `Intersect`
+
+- [`Intersect`](./src/intersect.ts)
+!*/
+
+//>
+import type { Intersect } from "pb.types";
+
+type Example = { A: true } | { B: true } | { C: true };
+type Result = Intersect<Example>;
+//   ^ { A: true } & { B: true } & { C: true }
+//   ^ { A: true; B: true; C: true }
+void {} as unknown as Result; //-
+//<
+
+/*!
+### `Identity<T>`
+
+- [`Identity`](./src/identity.ts)
+!*/
+
+//>
+import type { Identity } from "pb.types";
+
+const value = Object.assign({ A: true }, { B: true });
+//    ^ { A: boolean } & { B: boolean }
+type _Result = Identity<typeof value>;
+//   ^ { A: boolean; B: boolean }
+void {} as unknown as _Result; //-
+//<
+
+/*!
 ### `branch`
+
+- [`branch`](./src/branch.ts)
 !*/
 
 //>
@@ -44,33 +88,4 @@ void function example(): string | number | undefined {
 
 	return undefined;
 };
-//<
-
-//
-/*!
-### `Intersect`
-!*/
-
-//>
-import type { Intersect } from "pb.types";
-
-type Example = { A: true } | { B: true } | { C: true };
-type Result = Intersect<Example>;
-//   ^ { A: true } & { B: true } & { C: true }
-//   ^ { A: true; B: true; C: true }
-void {} as unknown as Result; //-
-//<
-
-/*!
-### `Identity<T>`
-!*/
-
-//>
-import type { Identity } from "pb.types";
-
-const value = Object.assign({ A: true }, { B: true });
-//    ^ { A: boolean } & { B: boolean }
-type _Result = Identity<typeof value>;
-//   ^ { A: boolean; B: boolean }
-void {} as unknown as _Result; //-
 //<
