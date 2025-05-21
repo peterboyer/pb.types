@@ -1,12 +1,12 @@
 {
-	"name": "pb.expectequal",
+	"name": "pb.types",
 	"version": "1.0.0",
 	"license": "MIT",
 	"author": "Peter Boyer <https://github.com/peterboyer>",
-	"description": "Assert exact equality of types.",
+	"description": "Utility types like Equal, Intersect, Identity and more.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/peterboyer/expectequal.git"
+		"url": "git+https://github.com/peterboyer/pb.types.git"
 	},
 	"type": "module",
 	"exports": "./index.js",
