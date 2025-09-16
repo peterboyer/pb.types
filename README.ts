@@ -1,14 +1,6 @@
 /*!
 # pb.types
 
-> [!NOTE]
-> Renamed from `pb.expectequal`.
->
-> Combines [`pb.expectequal`](https://github.com/peterboyer/pb.expectequal),
-[`pb.intersect`](https://github.com/peterboyer/pb.intersect), and
-[`pb.identity`](https://github.com/peterboyer/pb.identity) into a single
-[`pb.types`](https://github.com/peterboyer/pb.types) package.
-
 ## Installation
 
 ```shell
@@ -42,6 +34,64 @@ const result = JSON.stringify({});
 
 !0 as Expect<Equal<typeof result, string>>;
 !0 as Expect<NotEqual<typeof result, number>>;
+//<
+
+/*!
+### `Disposer`
+
+- [`Disposer`](./src/disposer.ts)
+!*/
+
+//>
+import type { Disposer } from "pb.types";
+
+function subscribe(): Disposer {
+	// Start listener/subscription.
+	return () => {
+		// Stop listener/subscription.
+	};
+}
+
+const disposer = subscribe();
+//   ^ () => void
+void disposer; //-
+//<
+
+/*!
+### `ArrayItem`
+
+- [`ArrayItem`](./src/array-item.ts)
+!*/
+
+//>
+import type { ArrayItem } from "pb.types";
+
+type Item = ArrayItem<Array<string>>;
+//   ^ string
+void {} as unknown as Item; //-
+//<
+
+/*!
+### `Mutable`
+
+- [`Mutable`](./src/mutable.ts)
+!*/
+
+//>
+import type { Mutable } from "pb.types";
+
+type MutableArray = Mutable<ReadonlyArray<number>>;
+//   ^ Array<number>
+type MutableSet = Mutable<ReadonlySet<number>>;
+//   ^ Set<number>
+type MutableMap = Mutable<ReadonlyMap<string, number>>;
+//   ^ Map<string, number>
+type MutableObject = Mutable<Readonly<{ foo: string; bar: number }>>;
+//   ^ { foo: string; bar: number; }
+void {} as unknown as MutableArray; //-
+void {} as unknown as MutableSet; //-
+void {} as unknown as MutableMap; //-
+void {} as unknown as MutableObject; //-
 //<
 
 /*!
