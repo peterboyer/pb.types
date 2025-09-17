@@ -1,6 +1,6 @@
 /**
  * @description
- * Returns a non-readonly (mutable) type of the given type.
+ * Returns a non-`readonly` type of the given type; reverse of `Readonly<T>`.
  *
  * @example
  * ```ts
