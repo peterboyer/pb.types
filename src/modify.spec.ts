@@ -1,4 +1,4 @@
-import type { Augment } from "./augment.js";
+import type { Modify } from "./modify.js";
 import type { Equal } from "./equal.js";
 import type { Expect } from "./expect.js";
 import type { Identity } from "./identity.js";
@@ -10,36 +10,60 @@ type T = {
 	readonly ddd?: number;
 };
 
-!0 as Expect<Equal<Augment<T, {}>, T>>;
+!0 as Expect<Equal<Modify<T, {}>, T>>;
+
+// required
 !0 as Expect<
 	Equal<
-		Augment<T, { required: "bbb" }>,
+		Modify<T, { required: "bbb" }>,
 		Identity<Omit<T, "bbb"> & { bbb: string }>
 	>
 >;
+// optional
 !0 as Expect<
 	Equal<
-		Augment<T, { optional: "aaa" }>,
+		Modify<T, { optional: "aaa" }>,
 		Identity<Omit<T, "aaa"> & { aaa?: string }>
 	>
 >;
+// both
 !0 as Expect<
 	Equal<
-		Augment<T, { mutable: "ccc" | "ddd" }>,
-		Identity<Omit<T, "ccc" | "ddd"> & { ccc: number; ddd?: number }>
+		Modify<T, { required: "bbb"; optional: "bbb" }>,
+		Identity<Omit<T, "bbb"> & { bbb: string }>
 	>
 >;
+
+// readonly
 !0 as Expect<
 	Equal<
-		Augment<T, { readonly: "aaa" | "bbb" }>,
+		Modify<T, { readonly: "aaa" | "bbb" }>,
 		Identity<
 			Omit<T, "aaa" | "bbb"> & { readonly aaa: string; readonly bbb?: string }
 		>
 	>
 >;
+// mutable
 !0 as Expect<
 	Equal<
-		Augment<
+		Modify<T, { mutable: "ccc" | "ddd" }>,
+		Identity<Omit<T, "ccc" | "ddd"> & { ccc: number; ddd?: number }>
+	>
+>;
+// both
+!0 as Expect<
+	Equal<
+		Modify<T, { readonly: "aaa" | "bbb"; mutable: "aaa" | "bbb" }>,
+		Identity<
+			Omit<T, "aaa" | "bbb"> & { readonly aaa: string; readonly bbb?: string }
+		>
+	>
+>;
+
+// everything
+!0 as Expect<
+	Equal<
+		Modify<
 			T,
 			{
 				optional: "aaa" | "ccc";
