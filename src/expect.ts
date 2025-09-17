@@ -4,11 +4,11 @@
  * the `Equal` or `NotEqual` generic types.
  *
  * @example
- * ```
- * const a: number = 0
- * !0 as Expect<Equal<typeof a, number>>
+ * ```ts
+ * const a: number = 0;
+ * !0 as Expect<Equal<typeof a, number>>;
  * //    ^ no errors
- * !0 as Expect<Equal<typeof a, string>>
+ * !0 as Expect<Equal<typeof a, string>>;
  * //    ^ error because `typeof a` is not strictly equal to `string`
  * ```
  */

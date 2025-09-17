@@ -6,7 +6,7 @@
  * ```ts
  * type MyArray = Array<string>;
  * type MyArrayItem = ArrayItem<MyArray>;
- *      ^ string
+ * //   ^ string
  * ```
  */
 export type ArrayItem<T extends ArrayLike<any>> =

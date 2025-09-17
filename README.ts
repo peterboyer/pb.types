@@ -58,6 +58,31 @@ void disposer; //-
 //<
 
 /*!
+### `Modify`
+
+- [`Modify`](./src/modify.ts)
+!*/
+
+//>
+import type { Modify } from "pb.types";
+
+type Props = {
+	label: string; // (required)
+	onClick?: () => void; // (optional)
+};
+
+function Component(
+	props: Modify<Props, { required: "onClick"; optional: "label" }>,
+) {
+	props.label;
+	//    ^ string | undefined (optional)
+	props.onClick;
+	//    ^ () => void (required)
+}
+void Component; //-
+//<
+
+/*!
 ### `ArrayItem`
 
 - [`ArrayItem`](./src/array-item.ts)

@@ -4,10 +4,10 @@
  * Returns `true` if given `A` and `B` types are exactly mutually assignable.
  *
  * @example
- * ```
- * const value = !0 as Equal<any, any>
+ * ```ts
+ * const value = !0 as Equal<any, any>;
  * //    ^ true
- * const value = !0 as Equal<any, unknown>
+ * const value = !0 as Equal<any, unknown>;
  * //    ^ false
  * ```
  */

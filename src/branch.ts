@@ -4,7 +4,7 @@
  * types.
  *
  * @example
- * ```
+ * ```ts
  * function example(): string | number | undefined {
  *   if (branch()) {
  *    return "abc";
@@ -15,7 +15,7 @@
  *   }
  *
  *   return undefined;
- * };
+ * }
  * ```
  */
 export function branch(): boolean {
