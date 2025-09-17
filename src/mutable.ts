@@ -1,6 +1,18 @@
 /**
  * @description
  * Returns a non-readonly (mutable) type of the given type.
+ *
+ * @example
+ * ```ts
+ * type MutableArray = Mutable<ReadonlyArray<number>>;
+ * //   ^ Array<number>
+ * type MutableSet = Mutable<ReadonlySet<number>>;
+ * //   ^ Set<number>
+ * type MutableMap = Mutable<ReadonlyMap<string, number>>;
+ * //   ^ Map<string, number>
+ * type MutableObject = Mutable<Readonly<{ foo: string; bar: number }>>;
+ * //   ^ { foo: string; bar: number; }
+ * ```
  */
 export type Mutable<T> =
 	T extends ArrayLike<infer U>

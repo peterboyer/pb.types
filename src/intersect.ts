@@ -4,7 +4,7 @@
  * Intersects all members of a union.
  *
  * @example
- * ```
+ * ```ts
  * type Example = { A: true } | { B: true } | { C: true };
  * type Result = Intersect<Example>;
  * //   ^ { A: true } & { B: true } & { C: true }
