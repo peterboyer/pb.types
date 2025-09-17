@@ -1,4 +1,5 @@
 export * from "./array-item.js";
+export * from "./augment.js";
 export * from "./branch.js";
 export * from "./disposer.js";
 export * from "./equal.js";
